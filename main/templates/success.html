@@ -1,11 +1,16 @@
+{% load staticfiles %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/success.css' %}">
 </head>
 <body>
-    <h1>Success!</h1>
-    <p>{{ url }}</p>
+    <section class="success">
+        <h1>Success!</h1>
+        <p>The mp3 file was sent to <a href="https://accounts.google.com/ServiceLogin?hl=ru&passive=true&continue=https://www.google.com/search%3Fclient%3Dubuntu%26channel%3Dfs%26q%3Dgtht%26ie%3Dutf-8%26oe%3Dutf-8">{{ email }}<span></p>
+    </section>
 </body>
 </html>

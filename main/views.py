@@ -12,9 +12,15 @@ def main(request):
     return render(request, 'main.html', {'form': form})
 
 def accept_data(request):
-    url = request.POST.get('url')
+    if request.method == 'POST':
+        form = YoutubeForms(request.POST)
+        if form.is_valid():
+            url = request.POST.get('url')
+            email = request.POST.get('email')
 
-    # Start convert video
-    handler_youtube_video.delay(url)
+            # Start download video from youtube
+            handler_youtube_video.delay(url, email)
 
-    return render_to_response('success.html', {'url': url})
+            return render_to_response('success.html', {'email': email})
+    else:
+        return redirect('/')
