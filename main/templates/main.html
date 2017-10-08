@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Youtube to mp3</title>
+</head>
+<body>
+    <form action="accept_data" method="POST">{% csrf_token %}
+        {{ form }}
+        <button type="submit">
+           Get Mp3!
+        </button>
+    </form>
+</body>
+</html>
