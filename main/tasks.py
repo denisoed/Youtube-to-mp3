@@ -41,13 +41,7 @@ def handler_ffmpy(name, uuid_title):
 
 def send_to_email(video_title, user_email, uuid_title):
 
-    html_content = '<h5>%s</h5><a href="static/audio/%s.mp3" download>Download Your Mp3 file</a>' % (video_title, uuid_title)
-    email_content = EmailMessage(
-        'Youtube To Mp3',
-        '%s' % video_title,
-        'denisod93@gmail.com',
-        [user_email],
-    )
+    email_content = EmailMessage('Youtube To Mp3', '%s' % video_title, 'denisod93@gmail.com', [user_email])
 
     email_content.attach_file('%s/audio/%s.mp3' % (STATIC_DIR, uuid_title))
     email_content.send()
