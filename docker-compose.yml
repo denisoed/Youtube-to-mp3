@@ -19,7 +19,7 @@ services:
     image: celery
     build: .
     volumes:
-      - "./youtubeToMp3/celery.py"
+      - "youtubeToMp3/celery.py"
     command: bash -c "celery worker -A youtubeToMp3 --loglevel=INFO" 
     links:
       - redis
